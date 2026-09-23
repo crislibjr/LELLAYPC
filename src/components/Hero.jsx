@@ -24,7 +24,7 @@ export default function Hero() {
           <dl className="hero__facts">
             <div>
               <dt>Date</dt>
-              <dd>Friday, 10 October 2026</dd>
+              <dd>Saturday, 10 October 2026</dd>
             </div>
             <div>
               <dt>Time</dt>

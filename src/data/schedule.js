@@ -10,7 +10,7 @@ export const scheduleSections = [
   {
     id: "arrival-opening",
     title: "Arrival & Opening",
-    time: "10:00 – 11:40",
+    time: "10:00 – 11:30",
     items: [
       {
         time: "10:00 – 11:00",
@@ -19,19 +19,19 @@ export const scheduleSections = [
           "Guests arrive, register, and settle in as seats fill up ahead of the programme start.",
       },
       {
-        time: "11:00 – 11:15",
+        time: "11:00 – 11:05",
         title: "Opening Prayer",
         detail:
           "A choir leader or elder opens the session in prayer, welcoming everyone and inviting God's presence over the gathering.",
       },
       {
-        time: "11:15 – 11:25",
+        time: "11:05 – 11:20",
         title: "Welcome & Introduction",
         detail:
           "The host welcomes all present, explains the purpose of Meet and Greet, and gives a brief overview of the programme.",
       },
       {
-        time: "11:25 – 11:40",
+        time: "11:20 – 11:30",
         title: "Opening Song",
         detail:
           "The choir leads a lively opening song to set a warm, joyful tone for the rest of the session.",
@@ -40,108 +40,99 @@ export const scheduleSections = [
   },
   {
     id: "indoor-games",
-    title: "Indoor Games",
-    time: "11:40 – 13:30",
+    title: "Performances & Indoor Games",
+    time: "11:30 – 13:40",
     items: [
       {
-        time: "11:40 – 11:55",
+        time: "11:30 – 11:40",
+        title: "Poetry",
+        detail: "A short poetry recital shared with the group.",
+      },
+      {
+        time: "11:40 – 12:05",
         title: "Name Circle",
         detail:
           "Everyone says their name with an adjective sharing the same first letter, for example Joyful John. Each new person repeats all previous names before adding their own.",
       },
       {
-        time: "11:55 – 12:10",
+        time: "12:05 – 12:30",
         title: "Two Truths and a Lie",
         detail:
           "Each person shares three statements about themselves. The group guesses which statement is false.",
       },
       {
-        time: "12:10 – 12:25",
+        time: "12:30 – 12:55",
         title: "Bible Character Charades",
         detail:
           "Players act out Bible characters or stories while the rest of the group guesses who or what is being portrayed.",
       },
       {
-        time: "12:25 – 12:40",
-        title: "Would You Rather (Clean Edition)",
-        detail:
-          "The host asks fun questions such as would you rather witness the parting of the Red Sea or be with Daniel in the lions' den, and participants share their answers.",
-      },
-      {
-        time: "12:40 – 12:55",
-        title: "Find Someone Who",
-        detail:
-          "Everyone receives a list of traits such as find someone who sings in the choir, plays football, or joined the church this year, and mingles to match each one.",
-      },
-      {
-        time: "12:55 – 13:15",
-        title: "Human Bingo",
-        detail:
-          "Everyone receives a bingo card with prompts such as has visited another country, plays an instrument, or has three siblings, and mingles to find someone who matches each square.",
-      },
-      {
-        time: "13:15 – 13:30",
+        time: "12:55 – 13:20",
         title: "Bible Trivia Quiz",
         detail:
           "The group divides into teams and answers questions from the Bible, with small prizes for the winning team.",
       },
+      {
+        time: "13:20 – 13:30",
+        title: "Drama",
+        detail: "A short drama piece performed for the group.",
+      },
+      {
+        time: "13:30 – 13:40",
+        title: "Dance",
+        detail: "A dance performance to keep the energy up before lunch.",
+      },
     ],
   },
   {
-    id: "refreshment-break",
-    title: "Refreshment Break",
-    time: "13:30 – 13:45",
+    id: "lunch-break",
+    title: "Lunch Break",
+    time: "13:40 – 14:20",
     items: [
       {
-        time: "13:30 – 13:45",
-        title: "Refreshment Break",
+        time: "13:40 – 14:20",
+        title: "Lunch Break",
         detail:
-          "A short break to relax, take refreshments, and mingle informally before moving outdoors.",
+          "A break to eat, relax, and mingle informally before moving outdoors for the afternoon games.",
       },
     ],
   },
   {
     id: "outdoor-games",
     title: "Outdoor Games",
-    time: "13:45 – 15:45",
+    time: "14:20 – 15:55",
     items: [
       {
-        time: "13:45 – 14:00",
+        time: "14:20 – 14:35",
         title: "Sack Race",
         detail: "Teams race to the finish line while hopping inside a sack.",
       },
       {
-        time: "14:00 – 14:15",
+        time: "14:35 – 14:50",
         title: "Egg Race",
         detail:
           "Participants balance an egg on a spoon and race to the finish line without dropping it.",
       },
       {
-        time: "14:15 – 14:30",
+        time: "14:50 – 15:05",
         title: "Ball Toss Introductions",
         detail:
           "A soft ball is tossed around the group. Whoever catches it says their name and answers a fun question, such as their favourite hymn or Bible verse.",
       },
       {
-        time: "14:30 – 14:50",
-        title: "Tower Challenge",
-        detail:
-          "Teams build the tallest tower they can using cups, paper, or straws within a set time limit.",
-      },
-      {
-        time: "14:50 – 15:05",
+        time: "15:05 – 15:20",
         title: "Song Race",
         detail:
           "Teams take turns singing songs on a given theme. A team is eliminated if it cannot respond within a few seconds.",
       },
       {
-        time: "15:05 – 15:30",
+        time: "15:20 – 15:35",
         title: "Scavenger Hunt",
         detail:
           "Teams search the venue for Bible themed items or answer clues hidden around the grounds.",
       },
       {
-        time: "15:30 – 15:45",
+        time: "15:35 – 15:55",
         title: "Eating Competition",
         detail:
           "A light hearted contest where participants race to finish a small snack first, for laughs and fellowship.",
@@ -151,10 +142,10 @@ export const scheduleSections = [
   {
     id: "closing",
     title: "Closing",
-    time: "15:45 – 16:00",
+    time: "15:55 – 16:00",
     items: [
       {
-        time: "15:45 – 16:00",
+        time: "15:55 – 16:00",
         title: "Prize Giving & Closing",
         detail:
           "Small prizes are awarded to winners from the day's games, followed by a closing song and a closing prayer to end the session.",
@@ -162,6 +153,11 @@ export const scheduleSections = [
     ],
   },
 ];
+
+// Printed on the flyer under the programme table: every game (indoor and
+// outdoor) is performed by 3 representatives from each district.
+export const gameParticipationNote =
+  "In each and every game, 3 people from each district will perform. This applies to all indoor and outdoor games.";
 
 // Core event facts, reused across the Hero, EventDetails, calendar (.ics)
 // generator, and the JSON-LD structured data in index.html.

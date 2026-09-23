@@ -22,7 +22,7 @@ export default function EventDetails() {
           <ul className="details__list">
             <li>
               <strong>Date</strong>
-              <span>Friday, 10 October 2026</span>
+              <span>Saturday, 10 October 2026</span>
             </li>
             <li>
               <strong>Time</strong>

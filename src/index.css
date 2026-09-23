@@ -330,6 +330,11 @@ button {
   margin-right: auto;
 }
 
+.schedule__note {
+  font-size: 0.85rem;
+  color: rgba(246, 244, 239, 0.7);
+}
+
 .schedule__sections {
   display: grid;
   gap: var(--space-3);

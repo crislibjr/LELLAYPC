@@ -1,7 +1,7 @@
 # Lusaka East Luangwa YPC — Meet & Greet
 
 Informational site for the Lusaka East Luangwa Apostle Area Young People's
-Choir Meet & Greet (Friday 10 October 2026, Olympia Park NAC).
+Choir Meet & Greet (Saturday 10 October 2026, Olympia Park NAC).
 
 Static React site (Vite), deployed to GitHub Pages. No backend — all
 content is baked in at build time.

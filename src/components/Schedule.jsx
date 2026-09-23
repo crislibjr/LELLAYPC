@@ -8,7 +8,7 @@
 
 import { useState } from "react";
 import { useScrollReveal } from "../hooks/useScrollReveal";
-import { scheduleSections } from "../data/schedule";
+import { scheduleSections, gameParticipationNote } from "../data/schedule";
 
 function ScheduleItem({ item }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -60,6 +60,7 @@ export default function Schedule() {
           <p className="eyebrow">10:00 – 16:00</p>
           <h2 id="schedule-heading">The day&rsquo;s programme</h2>
           <p>Tap any activity for a quick rundown of how it works.</p>
+          <p className="schedule__note">{gameParticipationNote}</p>
         </div>
 
         <div className="schedule__sections">
