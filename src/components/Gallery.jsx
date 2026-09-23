@@ -25,7 +25,7 @@ export default function Gallery() {
       <div className="container">
         <div ref={revealRef} className="reveal gallery__intro">
           <h2 id="gallery-heading">Gallery</h2>
-          <p>Photos from the day will go here — check back after the event.</p>
+          <p>Photos from the day will go here. check back after the event.</p>
         </div>
 
         <div className="gallery__grid">

@@ -18,7 +18,7 @@ export default function Welcome() {
             Luangwa Apostle Area together for a day built around three simple
             things: fun, fellowship, and faith. Expect games indoors and out,
             music, a shared meal, and time to build friendships across
-            congregations — all anchored in worship and the Word.
+            congregations, all anchored in worship and the Word.
           </p>
           <p>
             Whether you sing, play an instrument, or simply want to be part of

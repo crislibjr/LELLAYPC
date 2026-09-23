@@ -10,6 +10,9 @@ export default function Footer() {
         <p className="site-footer__fine">
           New Apostolic Church Zambia &middot; {new Date().getFullYear()}
         </p>
+        <p className="site-footer__fine">
+          Built by CrispinIT Labs
+        </p>
       </div>
     </footer>
   );

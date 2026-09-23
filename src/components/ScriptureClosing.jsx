@@ -16,11 +16,11 @@ export default function ScriptureClosing() {
           <blockquote>
             &ldquo;How good and pleasant it is when God&rsquo;s people live
             together in unity!&rdquo;
-            <cite>— Psalm 133:1</cite>
+            <cite>Psalm 133:1</cite>
           </blockquote>
           <blockquote>
             &ldquo;Don&rsquo;t be afraid, just believe.&rdquo;
-            <cite>— Mark 5:36</cite>
+            <cite>Mark 5:36</cite>
           </blockquote>
           <p className="scripture__tagline">
             Let&rsquo;s meet, laugh, sing and grow together in Christ! See you
