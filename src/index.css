@@ -1,0 +1,643 @@
+/* ==========================================================================
+   Global design tokens
+   --------------------------------------------------------------------------
+   The live ShaderGradient background supplies motion + color, so the UI
+   layer on top stays deliberately quiet: translucent "glass" panels,
+   one accent color (warm gold, echoing the printed flyers), and a
+   serif/sans pairing that reads as a church programme rather than a SaaS
+   product.
+   ========================================================================== */
+
+:root {
+  /* -- Color: base palette -------------------------------------------- */
+  --color-ink: #0e1626;          /* near-black, used for text on light chips */
+  --color-paper: #f6f4ef;        /* warm off-white for text on dark glass */
+  --color-brand-blue: #5793c9;   /* lifted from the church logo background */
+  --color-brand-blue-deep: #2c4a6e;
+  --color-gold: #e3b23c;         /* accent — echoes the flyer's gold highlights */
+  --color-gold-soft: #f0d38a;
+
+  /* -- Glass panel system ----------------------------------------------- */
+  --glass-bg: rgba(14, 20, 32, 0.52);
+  --glass-bg-strong: rgba(10, 15, 26, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.14);
+  --glass-blur: 18px;
+
+  /* -- Type --------------------------------------------------------- */
+  --font-display: "Fraunces", "Iowan Old Style", "Georgia", serif;
+  --font-body: "Inter", "Segoe UI", system-ui, sans-serif;
+
+  /* -- Layout ------------------------------------------------------- */
+  --content-max: 1080px;
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.75rem;
+  --space-4: 3rem;
+  --space-5: 5rem;
+  --radius: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-paper);
+  background: #060a12; /* fallback shown while the shader canvas mounts */
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  margin: 0 0 var(--space-2);
+  line-height: 1.12;
+  font-weight: 600;
+}
+
+p {
+  margin: 0 0 var(--space-2);
+  max-width: 62ch; /* keep body copy readable */
+}
+
+a {
+  color: var(--color-gold-soft);
+}
+
+button {
+  font-family: inherit;
+}
+
+/* Respect users who've asked the OS to reduce motion. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Visible keyboard focus everywhere — no focus outlines are suppressed. */
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 0 var(--space-3);
+}
+
+.section {
+  position: relative;
+  padding: var(--space-5) 0;
+}
+
+/* Reusable "glass" card used across Schedule, EventDetails, Contact, etc. */
+.glass-panel {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur));
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: var(--color-gold-soft);
+  margin: 0 0 var(--space-1);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.75em 1.4em;
+  border-radius: 999px;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg-strong);
+  color: var(--color-paper);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+  text-decoration: none;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  background: rgba(20, 28, 44, 0.85);
+}
+
+.btn-gold {
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+  color: var(--color-ink);
+}
+
+.btn-gold:hover {
+  background: var(--color-gold-soft);
+}
+
+/* Scroll-reveal utility: elements start hidden/offset, then the
+   useScrollReveal hook adds `.is-visible` once the element enters view. */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+.site-header {
+  padding: var(--space-4) 0 var(--space-3);
+  text-align: center;
+}
+
+.site-header__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.site-header__logo-top {
+  display: block;
+  margin-bottom: var(--space-2);
+  filter: drop-shadow(0 4px 18px rgba(0, 0, 0, 0.35));
+}
+
+.site-header__title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: var(--space-1);
+}
+
+.site-header__logo-inline {
+  opacity: 0.9;
+}
+
+.site-header__area {
+  margin: 0;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  color: var(--color-gold-soft);
+}
+
+.site-header__title {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  margin: 0;
+}
+
+.site-header__title-accent {
+  display: block;
+  color: var(--color-gold);
+  font-size: 0.75em;
+  margin-top: 0.2em;
+}
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+
+.hero__card {
+  padding: var(--space-4);
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.hero__heading {
+  font-size: clamp(1.6rem, 3.4vw, 2.2rem);
+}
+
+.hero__description {
+  margin: 0 auto var(--space-3);
+}
+
+.hero__facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2);
+  margin: 0 0 var(--space-3);
+  padding: var(--space-2) 0;
+  border-top: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.hero__facts dt {
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: var(--color-gold-soft);
+  margin-bottom: 0.2em;
+}
+
+.hero__facts dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2);
+  margin: var(--space-3) 0;
+}
+
+.countdown__unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 3.2rem;
+}
+
+.countdown__value {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.countdown__label {
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: var(--color-gold-soft);
+}
+
+.countdown--over {
+  font-weight: 600;
+  color: var(--color-gold-soft);
+}
+
+.hero__actions {
+  margin-bottom: var(--space-2);
+}
+
+.share-buttons {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-1);
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   Welcome
+   ========================================================================== */
+
+.welcome__card {
+  padding: var(--space-4);
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.welcome__card p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ==========================================================================
+   Schedule
+   ========================================================================== */
+
+.schedule__intro {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto var(--space-4);
+}
+
+.schedule__sections {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.schedule-section {
+  padding: var(--space-3);
+}
+
+.schedule-section__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: var(--space-2);
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.schedule-section__header h3 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.schedule-section__time {
+  font-size: 0.85rem;
+  color: var(--color-gold-soft);
+  white-space: nowrap;
+}
+
+.schedule-section__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--glass-border);
+}
+
+.schedule-item {
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.schedule-item__trigger {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 7.5rem 1fr auto;
+  align-items: center;
+  gap: var(--space-2);
+  background: none;
+  border: none;
+  color: inherit;
+  text-align: left;
+  padding: 0.85rem 0.25rem;
+  cursor: pointer;
+}
+
+.schedule-item__time {
+  font-size: 0.82rem;
+  color: var(--color-gold-soft);
+}
+
+.schedule-item__title {
+  font-weight: 600;
+}
+
+.schedule-item__chevron {
+  font-size: 1.2rem;
+  color: var(--color-gold-soft);
+}
+
+.schedule-item__detail {
+  margin: 0 0 0.9rem;
+  padding: 0 0.25rem;
+  max-width: none;
+  color: rgba(246, 244, 239, 0.85);
+  font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   Event details
+   ========================================================================== */
+
+.details__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+  align-items: stretch;
+}
+
+.details__card {
+  padding: var(--space-4);
+}
+
+.details__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-2);
+}
+
+.details__list li {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-2);
+  border-bottom: 1px solid var(--glass-border);
+  padding-bottom: 0.6rem;
+}
+
+.details__map {
+  overflow: hidden;
+  min-height: 320px;
+}
+
+/* ==========================================================================
+   Gallery
+   ========================================================================== */
+
+.gallery__intro {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto var(--space-3);
+}
+
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-2);
+}
+
+.gallery__thumb {
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+  aspect-ratio: 4 / 3;
+}
+
+.gallery__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.gallery__thumb:hover img {
+  transform: scale(1.04);
+}
+
+.gallery__lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: rgba(4, 6, 12, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3);
+}
+
+.gallery__lightbox img {
+  max-width: min(90vw, 900px);
+  max-height: 85vh;
+  border-radius: 8px;
+}
+
+.gallery__lightbox-close {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  background: none;
+  border: none;
+  color: var(--color-paper);
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   Scripture / closing
+   ========================================================================== */
+
+.scripture__block {
+  max-width: 620px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.scripture__block blockquote {
+  margin: 0 0 var(--space-3);
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-style: italic;
+}
+
+.scripture__block cite {
+  display: block;
+  margin-top: 0.5rem;
+  font-family: var(--font-body);
+  font-style: normal;
+  font-size: 0.85rem;
+  color: var(--color-gold-soft);
+}
+
+.scripture__tagline {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-top: var(--space-3);
+}
+
+/* ==========================================================================
+   Download programme
+   ========================================================================== */
+
+.download__card {
+  padding: var(--space-4);
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   Contact
+   ========================================================================== */
+
+.contact__card {
+  padding: var(--space-4);
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.contact__note {
+  font-size: 0.9rem;
+  color: rgba(246, 244, 239, 0.75);
+}
+
+.contact__list {
+  display: grid;
+  gap: var(--space-2);
+  margin: var(--space-2) 0 0;
+}
+
+.contact__list div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-2);
+  border-bottom: 1px solid var(--glass-border);
+  padding-bottom: 0.6rem;
+}
+
+.contact__list dt {
+  font-weight: 600;
+}
+
+.contact__list dd {
+  margin: 0;
+  color: rgba(246, 244, 239, 0.75);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.site-footer {
+  padding: var(--space-4) 0;
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(246, 244, 239, 0.7);
+}
+
+.site-footer__fine {
+  margin-top: 0.3rem;
+  font-size: 0.78rem;
+}
+
+/* ==========================================================================
+   Responsive adjustments
+   ========================================================================== */
+
+@media (max-width: 720px) {
+  .hero__facts {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+    text-align: center;
+  }
+
+  .details__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .schedule-item__trigger {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "title chevron"
+      "time time";
+  }
+
+  .schedule-item__time {
+    grid-area: time;
+  }
+
+  .schedule-item__title {
+    grid-area: title;
+  }
+
+  .schedule-item__chevron {
+    grid-area: chevron;
+  }
+
+  .background-toggle {
+    top: auto !important;
+    bottom: 1rem !important;
+    right: 1rem !important;
+  }
+}

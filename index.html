@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <!-- ==================================================================
+         Core SEO tags
+         Title/description are written for search results and link
+         previews (WhatsApp/Facebook share cards use the Open Graph tags
+         below). Update BASE_URL once a real domain is attached — see the
+         note near the Open Graph block.
+         ================================================================== -->
+    <title>Lusaka East Luangwa YPC Meet & Greet | 10 Oct 2026</title>
+    <meta
+      name="description"
+      content="Join the Lusaka East Luangwa Apostle Area Young People's Choir Meet & Greet on Friday 10 October 2026, 10:00-16:00, at Olympia Park NAC. A day of games, music, and fellowship. Everyone welcome."
+    />
+    <meta
+      name="keywords"
+      content="Young People's Choir, YPC, NAC Lusaka East, New Apostolic Church, Lusaka East Luangwa Apostle Area, Olympia Park NAC, Meet and Greet, NAC Zambia youth event"
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://crislibjr.github.io/LELLAYPC/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Favicon: the church logo, reused at small size. -->
+    <link rel="icon" type="image/png" href="/assets/logo/logo.png" />
+
+    <!-- ==================================================================
+         Open Graph / Twitter Card
+         Powers the preview card shown when this link is pasted into
+         WhatsApp, Facebook, Twitter/X, etc. NOTE: replace the og:url and
+         og:image absolute paths below with the real domain once one is
+         attached (currently pointed at the GitHub Pages URL for
+         crislibjr/LELLAYPC).
+         ================================================================== -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Lusaka East Luangwa YPC Meet & Greet" />
+    <meta
+      property="og:description"
+      content="A day of connection, games, music, and spiritual growth. Friday 10 October 2026, Olympia Park NAC. Everyone welcome."
+    />
+    <meta property="og:url" content="https://crislibjr.github.io/LELLAYPC/" />
+    <meta
+      property="og:image"
+      content="https://crislibjr.github.io/LELLAYPC/assets/logo/logo.png"
+    />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Lusaka East Luangwa YPC Meet & Greet" />
+    <meta
+      name="twitter:description"
+      content="Friday 10 October 2026, 10:00-16:00, Olympia Park NAC. Games, music, fellowship. Everyone welcome."
+    />
+    <meta
+      name="twitter:image"
+      content="https://crislibjr.github.io/LELLAYPC/assets/logo/logo.png"
+    />
+
+    <!-- ==================================================================
+         Google Fonts — Fraunces (display serif) + Inter (body sans),
+         matching the tokens defined in src/index.css.
+         ================================================================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ==================================================================
+         JSON-LD structured data (schema.org/Event)
+         Lets Google show this as a rich Event result (date, location)
+         directly in search. Values mirror src/data/schedule.js — keep
+         them in sync if the date/venue ever changes.
+         ================================================================== -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "Lusaka East Luangwa YPC Meet & Greet",
+        "description": "A day of connection, games, music, and spiritual growth for the Lusaka East Luangwa Apostle Area Young People's Choir. Everyone is welcome.",
+        "startDate": "2026-10-10T10:00:00+02:00",
+        "endDate": "2026-10-10T16:00:00+02:00",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "Olympia Park, New Apostolic Church",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Lusaka",
+            "addressCountry": "ZM"
+          }
+        },
+        "organizer": {
+          "@type": "Organization",
+          "name": "New Apostolic Church Zambia — Lusaka East Luangwa Apostle Area, Young People's Choir"
+        },
+        "image": "https://crislibjr.github.io/LELLAYPC/assets/logo/logo.png",
+        "isAccessibleForFree": true
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

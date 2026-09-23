@@ -1,0 +1,5 @@
+# Allow all crawlers full access — this is a public event information page.
+User-agent: *
+Allow: /
+
+Sitemap: https://crislibjr.github.io/LELLAYPC/sitemap.xml
