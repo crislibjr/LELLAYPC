@@ -10,28 +10,34 @@ export const scheduleSections = [
   {
     id: "arrival-opening",
     title: "Arrival & Opening",
-    time: "10:00 – 11:30",
+    time: "09:00 – 11:00",
     items: [
       {
-        time: "10:00 – 11:00",
-        title: "Arrival & Registration",
+        time: "09:00 – 10:00",
+        title: "Arrival",
         detail:
-          "Guests arrive, register, and settle in as seats fill up ahead of the programme start.",
+          "Guests arrive and settle in as seats fill up ahead of the programme start.",
       },
       {
-        time: "11:00 – 11:05",
+        time: "10:00 – 10:30",
+        title: "Socialization",
+        detail:
+          "An informal time to greet one another and meet choir members from other congregations.",
+      },
+      {
+        time: "10:30 – 10:35",
         title: "Opening Prayer",
         detail:
           "A choir leader or elder opens the session in prayer, welcoming everyone and inviting God's presence over the gathering.",
       },
       {
-        time: "11:05 – 11:20",
-        title: "Welcome & Introduction",
+        time: "10:35 – 10:50",
+        title: "Welcoming Remarks & Introductions",
         detail:
           "The host welcomes all present, explains the purpose of Meet and Greet, and gives a brief overview of the programme.",
       },
       {
-        time: "11:20 – 11:30",
+        time: "10:50 – 11:00",
         title: "Opening Song",
         detail:
           "The choir leads a lively opening song to set a warm, joyful tone for the rest of the session.",
@@ -41,98 +47,91 @@ export const scheduleSections = [
   {
     id: "indoor-games",
     title: "Performances & Indoor Games",
-    time: "11:30 – 13:40",
+    time: "11:00 – 13:00",
     items: [
       {
-        time: "11:30 – 11:40",
-        title: "Poetry",
+        time: "11:00 – 11:10",
+        title: "Poetry One",
         detail: "A short poetry recital shared with the group.",
       },
       {
-        time: "11:40 – 12:05",
-        title: "Name Circle",
-        detail:
-          "Everyone says their name with an adjective sharing the same first letter, for example Joyful John. Each new person repeats all previous names before adding their own.",
+        time: "11:10 – 11:20",
+        title: "Poetry Two",
+        detail: "A second poetry recital shared with the group.",
       },
       {
-        time: "12:05 – 12:30",
-        title: "Two Truths and a Lie",
+        time: "11:20 – 11:30",
+        title: "Explanation of Games",
         detail:
-          "Each person shares three statements about themselves. The group guesses which statement is false.",
+          "The facilitators explain how each of the indoor games works before everyone splits into groups.",
       },
       {
-        time: "12:30 – 12:55",
-        title: "Bible Character Charades",
+        time: "11:30 – 12:30",
+        title: "Indoor Games (Simultaneous)",
         detail:
-          "Players act out Bible characters or stories while the rest of the group guesses who or what is being portrayed.",
+          "Games run at the same time in different groups: Country Games, Bible Character Charades, Bible Trivia Quiz, Name Circle, and Two Truths and a Lie.",
       },
       {
-        time: "12:55 – 13:20",
-        title: "Bible Trivia Quiz",
-        detail:
-          "The group divides into teams and answers questions from the Bible, with small prizes for the winning team.",
-      },
-      {
-        time: "13:20 – 13:30",
+        time: "12:30 – 12:45",
         title: "Drama",
         detail: "A short drama piece performed for the group.",
       },
       {
-        time: "13:30 – 13:40",
+        time: "12:45 – 12:55",
         title: "Dance",
         detail: "A dance performance to keep the energy up before lunch.",
+      },
+      {
+        time: "12:55 – 13:00",
+        title: "Closing of Indoor Activities",
+        detail: "A brief wrap-up of the indoor programme before lunch.",
       },
     ],
   },
   {
     id: "lunch-break",
-    title: "Lunch Break",
-    time: "13:40 – 14:20",
+    title: "Lunch",
+    time: "13:00 – 13:40",
     items: [
       {
-        time: "13:40 – 14:20",
-        title: "Lunch Break",
+        time: "13:00 – 13:40",
+        title: "Lunch",
         detail:
-          "A break to eat, relax, and mingle informally before moving outdoors for the afternoon games.",
+          "A break to eat, relax, and mingle informally. Remember to bring your own lunch and a bottle of water.",
       },
     ],
   },
   {
     id: "outdoor-games",
     title: "Outdoor Games",
-    time: "14:20 – 15:55",
+    time: "13:40 – 15:30",
     items: [
       {
-        time: "14:20 – 14:35",
-        title: "Sack Race",
-        detail: "Teams race to the finish line while hopping inside a sack.",
-      },
-      {
-        time: "14:35 – 14:50",
-        title: "Egg Race",
+        time: "13:40 – 14:00",
+        title: "Mobilization",
         detail:
-          "Participants balance an egg on a spoon and race to the finish line without dropping it.",
+          "Everyone gathers and moves outdoors, ready to be organised into teams for the afternoon activities.",
       },
       {
-        time: "14:50 – 15:05",
-        title: "Ball Toss Introductions",
-        detail:
-          "A soft ball is tossed around the group. Whoever catches it says their name and answers a fun question, such as their favourite hymn or Bible verse.",
-      },
-      {
-        time: "15:05 – 15:20",
-        title: "Song Race",
-        detail:
-          "Teams take turns singing songs on a given theme. A team is eliminated if it cannot respond within a few seconds.",
-      },
-      {
-        time: "15:20 – 15:35",
+        time: "14:00 – 14:10",
         title: "Scavenger Hunt",
         detail:
           "Teams search the venue for Bible themed items or answer clues hidden around the grounds.",
       },
       {
-        time: "15:35 – 15:55",
+        time: "14:10 – 14:40",
+        title: "Outdoor Set 1 (Simultaneous)",
+        detail:
+          "Sack Race: teams race to the finish line while hopping inside a sack. Egg Race: participants balance an egg on a spoon and race to the finish line without dropping it.",
+      },
+      {
+        time: "14:40 – 15:10",
+        title: "Outdoor Set 2 (Simultaneous)",
+        detail:
+          "Musical Chairs: walk to the music and grab a seat when it stops. Ball Toss: a soft ball is tossed around the group, and whoever it lands on when the music is stopped gets eliminated.",
+      },
+      {
+        time: "15:10 – 15:30",
         title: "Eating Competition",
         detail:
           "A light hearted contest where participants race to finish a small snack first, for laughs and fellowship.",
@@ -142,22 +141,25 @@ export const scheduleSections = [
   {
     id: "closing",
     title: "Closing",
-    time: "15:55 – 16:00",
+    time: "15:30 – 16:00",
     items: [
       {
-        time: "15:55 – 16:00",
-        title: "Prize Giving & Closing",
+        time: "15:30 – 15:45",
+        title: "LSHE Talk",
+        detail: "A short talk to close out the day's activities.",
+      },
+      {
+        time: "15:45 – 16:00",
+        title: "Conclusion & Closing Remarks",
         detail:
-          "Small prizes are awarded to winners from the day's games, followed by a closing song and a closing prayer to end the session.",
+          "Closing remarks and thanks to everyone who joined, bringing the day to a close.",
       },
     ],
   },
 ];
 
-// Printed on the flyer under the programme table: every game (indoor and
-// outdoor) is performed by 3 representatives from each district.
-export const gameParticipationNote =
-  "In each and every game, 3 people from each district will perform. This applies to all indoor and outdoor games.";
+// The updated flyer no longer prints a game participation note.
+export const gameParticipationNote = "";
 
 // Core event facts, reused across the Hero, EventDetails, calendar (.ics)
 // generator, and the JSON-LD structured data in index.html.
@@ -166,7 +168,7 @@ export const eventInfo = {
   tagline: "Fun · Fellowship · Faith",
   description:
     "A day of connection, games, music, and spiritual growth for the Lusaka East Luangwa Apostle Area Young People's Choir. Everyone is welcome.",
-  startDate: "2026-10-10T10:00:00+02:00",
+  startDate: "2026-10-10T09:00:00+02:00",
   endDate: "2026-10-10T16:00:00+02:00",
   venueName: "Olympia Park, New Apostolic Church",
   venueAddress: "Olympia Park, Lusaka, Zambia",

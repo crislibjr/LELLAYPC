@@ -28,7 +28,7 @@ export default function Hero() {
             </div>
             <div>
               <dt>Time</dt>
-              <dd>10:00 – 16:00</dd>
+              <dd>09:00 – 16:00</dd>
             </div>
             <div>
               <dt>Venue</dt>

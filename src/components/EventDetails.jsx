@@ -26,7 +26,7 @@ export default function EventDetails() {
             </li>
             <li>
               <strong>Time</strong>
-              <span>10:00 – 16:00 (6 hours)</span>
+              <span>09:00 – 16:00 (7 hours)</span>
             </li>
             <li>
               <strong>Venue</strong>

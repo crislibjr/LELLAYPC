@@ -57,10 +57,12 @@ export default function Schedule() {
     <section className="section" id="schedule" aria-labelledby="schedule-heading">
       <div className="container">
         <div ref={headingRef} className="reveal schedule__intro">
-          <p className="eyebrow">10:00 – 16:00</p>
+          <p className="eyebrow">09:00 – 16:00</p>
           <h2 id="schedule-heading">The day&rsquo;s programme</h2>
           <p>Tap any activity for a quick rundown of how it works.</p>
-          <p className="schedule__note">{gameParticipationNote}</p>
+          {gameParticipationNote && (
+            <p className="schedule__note">{gameParticipationNote}</p>
+          )}
         </div>
 
         <div className="schedule__sections">
